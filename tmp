@@ -1,9 +1,0 @@
-h1 a {
-    color: #4747ff;
-    font-family: 'Anton', sans-serif;
-}
-body {
-    padding-left: 15px;
-}
-
-#4e5255
