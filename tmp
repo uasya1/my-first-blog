@@ -1,2 +1,6 @@
 ff45bb pink
 22272B
+
+
+$ workon <your-pythonanywhere-domain>.pythonanywhere.com
+$ python manage.py collectstatic
