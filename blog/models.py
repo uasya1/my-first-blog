@@ -10,6 +10,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
 
     document = models.FileField(upload_to='media/%Y/%m/%d/',null=True, blank=True, help_text='150x150px', verbose_name='link doc')
+    image = models.ImageField(upload_to='image/%Y/%m/%d/',null=True, blank=True, )
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)

@@ -2,8 +2,9 @@
 {% block content %}
     <div class="post">
         <h1>{{ post.title }}</h1>
+        <img src="{{ post.image.url }}" alt="My image" width="500px"/>
 
-
+<!--        <p>{{ post.document|linebreaksbr }}</p>-->
         <p>{{ post.text|linebreaksbr }}</p>
         {% if post.published_date %}
             <div class="date">
