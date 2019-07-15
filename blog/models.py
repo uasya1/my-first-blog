@@ -3,13 +3,17 @@ from django.db import models
 from django.utils import timezone
 from django.core.files.storage import FileSystemStorage
 
+#
+# class PostFile(models.Model):
+#     file = models.FileField(upload_to="media/%Y/%m/%d",null=True, blank=True, help_text='Only webm or mp4', verbose_name='video',)
+#     #feed = models.ForeignKey(Post, on_delete=models.CASCADE)
 
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-
-    document = models.FileField(upload_to='media/%Y/%m/%d/',null=True, blank=True, help_text='150x150px', verbose_name='link doc')
+    #files = models.ManyToManyField(PostFile)
+    video = models.FileField(upload_to='media/%Y/%m/%d/',null=True, blank=True, help_text='Only webm or mp4', verbose_name='video',)
     image = models.ImageField(upload_to='image/%Y/%m/%d/',null=True, blank=True, )
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
@@ -26,6 +30,7 @@ class Post(models.Model):
         return self.comments.filter(approved_comment=True)
 
 
+
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=200)
@@ -39,3 +44,5 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+

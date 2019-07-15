@@ -21,11 +21,15 @@ def post_detail(request, pk):
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
+        file_form = FileModelForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             #post.published_date = timezone.now()
             post.save()
+            for f in file_form:
+                file_instance = PostFile(file=f, feed=post)
+                file_instance.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
@@ -37,16 +41,22 @@ def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
+        #file_form = FileModelForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
+            #post = file_form.save(commit=False)
             post.author = request.user
 
 
             #post.published_date = timezone.now()
             post.save()
+            # for f in file_form:
+            #     file_instance = PostFile(file=f, feed=post)
+            #     file_instance.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
+        #file_form = FileModelForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 
 @login_required

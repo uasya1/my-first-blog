@@ -1,9 +1,22 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     <div class="post">
-        <h1>{{ post.title }}</h1>
-        <img src="{{ post.image.url }}" alt="My image" width="500px"/>
 
+        <h1>{{ post.title }}</h1>
+        {% if post.video and post.image %}
+            <table>
+                <tr>
+                    <th><video src="{{ post.video.url|default_if_none:'#' }}"  height="270"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
+                        </video></th>
+<!--                    <td><img src="{{ post.image.url|default_if_none:'#' }}" alt="My image" height="270"/></td>-->
+                </tr>
+            </table>
+        {% else %}
+            <p></p>
+        {% endif %}
+
+        <br>
+        <br>
 <!--        <p>{{ post.document|linebreaksbr }}</p>-->
         <p>{{ post.text|linebreaksbr }}</p>
         {% if post.published_date %}

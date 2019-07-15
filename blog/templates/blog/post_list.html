@@ -5,7 +5,21 @@
         <div class="post">
 
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr|truncatechars:150 }}</p>
+        {% if post.video or post.image %}
+
+            <table>
+                <tr>
+                    <th><video src="{{ post.video.url|default_if_none:'#' }}"  height="270"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
+                        </video></th>
+<!--                    <td><img src="{{ post.image.url|default_if_none:'#' }}" alt="My image" height="270"/></td>-->
+                </tr>
+            </table>
+        {% else %}
+            <p></p>
+        {% endif %}
+            <br>
+            <br>
+            <p>{{ post.text|linebreaksbr|truncatechars:300 }}</p>
             <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
             <div class="date">
                 {{ post.published_date }}
