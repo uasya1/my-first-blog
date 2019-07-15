@@ -2,9 +2,9 @@
 <html>
     <head>
         <title>Django Free</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<!--        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet" type="text/css">
+
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link rel="shortcut icon" type="image/png" href="{% static 'image/mewtwo.ico' %}">
     </head>
@@ -21,10 +21,13 @@
     </div>
     <div class="content container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             {% block content %}
             {% endblock %}
+
             </div>
+
+
         </div>
     </div>
 </body>

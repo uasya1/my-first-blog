@@ -19,7 +19,7 @@
         {% endif %}
             <br>
             <br>
-            <p>{{ post.text|linebreaksbr|truncatechars:300 }}</p>
+            <p>{{ post.text|linebreaksbr|truncatechars:80 }}</p>
             <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
             <div class="date">
                 {{ post.published_date }}
