@@ -25,7 +25,7 @@ SECRET_KEY = 'psh85aqxo2%zco%nq7%_!%p6ydzfso%)&c70$5&9c@(e9x^y(e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'adminfree.pythonanywhere.com', 'uasya1.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.88', 'adminfree.pythonanywhere.com', 'uasya1.pythonanywhere.com']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'jquery',
 ]
 
 MIDDLEWARE = [
@@ -132,4 +133,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
 LOGIN_REDIRECT_URL = '/'
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000

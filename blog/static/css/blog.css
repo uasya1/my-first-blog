@@ -9,20 +9,31 @@
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
+    margin-left: 50px;
+}
+
+.back {
+    background-color: #dbdbdb;
 }
 
 
-
+.content {
+/*
+    margin-left: 40px;
+    margin-right: 40px;
+  */
+    left: 50%;
+    top: 50%;
+      width: 800px;
+    background-color: #ffffff;
+}
 
 
 .comment {
     margin: 20px 0px 20px 20px;
 }
 
-.content {
-    margin-left: 40px;
 
-}
 
 h1, h2, h3, h4 {
     font-family: 'Russo One', cursive;
@@ -48,7 +59,11 @@ h1, h2, h3, h4 {
 }
 
 .post {
-    margin-bottom: 70px;
+    margin-top: 15px !important;
+    border-color: #dbdbdb;
+   border-bottom-style: solid;
+
+
 }
 
 .post h1 a, .post h1 a:visited {

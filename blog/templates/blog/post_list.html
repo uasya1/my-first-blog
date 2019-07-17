@@ -1,29 +1,30 @@
 {% extends 'blog/base.html' %}
-
+{% load static %}
 {% block content %}
     {% for post in posts %}
         <div class="post">
 
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         {% if post.video or post.image %}
-
+            <script type="text/javascript" src="{% static 'js/videoscrol.js' %}"></script>
             <table>
                 <tr>
-                    <th><video src="{{ post.video.url|default_if_none:'#' }}"  height="270"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
+                    <th><video class=".video" src="{{ post.video.url|default_if_none:'#' }}"  height="400"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
                         </video></th>
 <!--                    <td><img src="{{ post.image.url|default_if_none:'#' }}" alt="My image" height="270"/></td>-->
                 </tr>
             </table>
+
         {% else %}
             <p></p>
         {% endif %}
             <br>
-            <br>
+
             <p>{{ post.text|linebreaksbr|truncatechars:80 }}</p>
-            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
-            <div class="date">
-                {{ post.published_date }}
-            </div>
+<!--            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>-->
+<!--            <div class="date">-->
+<!--                {{ post.published_date }}-->
+<!--            </div>-->
         </div>
     {% endfor %}
 {% endblock %}

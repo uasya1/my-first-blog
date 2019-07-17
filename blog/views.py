@@ -4,6 +4,7 @@ from django.utils import timezone
 from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django.utils import translation
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -20,19 +21,19 @@ def post_detail(request, pk):
 
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
-        file_form = FileModelForm(request.POST, request.FILES, instance=post)
+        form = PostForm(request.POST, request.FILES)
+        #file_form = FileModelForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             #post.published_date = timezone.now()
             post.save()
-            for f in file_form:
-                file_instance = PostFile(file=f, feed=post)
-                file_instance.save()
+#
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
+
+
     return render(request, 'blog/post_edit.html', {'form': form})
 
 @login_required

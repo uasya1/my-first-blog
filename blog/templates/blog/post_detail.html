@@ -6,7 +6,7 @@
         {% if post.video and post.image %}
             <table>
                 <tr>
-                    <th><video src="{{ post.video.url|default_if_none:'#' }}"  height="270"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
+                    <th><video src="{{ post.video.url|default_if_none:'#' }}"  height="400"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
                         </video></th>
 <!--                    <td><img src="{{ post.image.url|default_if_none:'#' }}" alt="My image" height="270"/></td>-->
                 </tr>
@@ -16,7 +16,6 @@
         {% endif %}
 
         <br>
-        <br>
 <!--        <p>{{ post.document|linebreaksbr }}</p>-->
         <p>{{ post.text|linebreaksbr }}</p>
         {% if post.published_date %}
@@ -24,7 +23,7 @@
                 {{ post.published_date }}
             </div>
         {% else %}
-            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+            <a class="btn btn-secondary" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
         {% endif %}
         {% if user.is_authenticated %}
              <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
@@ -42,9 +41,9 @@
 
                 {% if not comment.approved_comment %}
 
-                    <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a class="btn btn-secondary" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove">Remove</span></a>
 
-                    <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                    <a class="btn btn-secondary" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok">Publish</span></a>
                 {% endif %}
             </div>
 
