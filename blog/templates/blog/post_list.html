@@ -6,14 +6,9 @@
 
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         {% if post.video or post.image %}
-            <script type="text/javascript" src="{% static 'js/videoscrol.js' %}"></script>
-            <table>
-                <tr>
-                    <th><video class=".video" src="{{ post.video.url|default_if_none:'#' }}"  height="400"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
-                        </video></th>
-<!--                    <td><img src="{{ post.image.url|default_if_none:'#' }}" alt="My image" height="270"/></td>-->
-                </tr>
-            </table>
+
+            <video class="video" src="{{ post.video.url|default_if_none:'#' }}"  height="400"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
+            </video>
 
         {% else %}
             <p></p>
@@ -25,6 +20,7 @@
 <!--            <div class="date">-->
 <!--                {{ post.published_date }}-->
 <!--            </div>-->
+            <script src="{% static 'js/scrol.js' %}"></script>
         </div>
     {% endfor %}
 {% endblock %}
