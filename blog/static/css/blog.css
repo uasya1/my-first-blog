@@ -1,3 +1,11 @@
+/*{% load static %}
+@font-face {
+    font-family: "Russo One";
+    src: url({% static 'fonts/RussoOne-Regular.woff' %});
+    src: local({% static 'fonts/RussoOne-Regular.woff2' %})
+
+}
+*/
 
 .page-header {
     background-color: #22272B;
@@ -10,26 +18,21 @@
     font-size: 36pt;
     text-decoration: none;
     margin-left: 10%;
-    /*margin-left: 50px;*/
 }
 
 .back {
-    background-color: #dbdbdb;
+    background-color: rgba(34, 39, 43, 0.9);
 }
 
 
 .content {
-/*
-    margin-left: 40px;
-    margin-right: 40px;
-  */
     left: 50%;
     top: 50%;
-      width: 740px;
-    background-color: #ffffff;
+    width: 750px;
+    background-color: rgba(34, 39, 43, 0.8)
+    color: #ffffff;
 
 }
-
 
 .comment {
     margin: 20px 0px 20px 20px;
@@ -38,7 +41,8 @@
 
 
 h1, h2, h3, h4 {
-    font-family: 'Russo One', cursive;
+    font-family: 'Russo One', sans-serif;
+    /*font-family: 'Russo One', cursive;*/
 }
 
 .date {
@@ -51,26 +55,44 @@ h1, h2, h3, h4 {
 
 .post-form textarea, .post-form input {
     width: 100%;
+    color: #ffffff;
+
+
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #ffffff;
     float: right;
-    font-size: 20pt;
+    font-size: 15pt;
     margin-right: 20px;
 }
 
+
 .post {
-    margin-top: 15px !important;
-    border-color: #dbdbdb;
-   border-bottom-style: solid;
 
-
-
+    width: 700px;
+    margin: 20px 0px 0px 0px;
+    background-color: rgba(34, 39, 43, 0.9);
+    border: 1px solid ;
+    border-color: #393d41;
 }
+
+.post video{
+    width: 698px;
+}
+
+.title {
+    margin: 10px 20px 0px 20px;
+    }
 
 .post h1 a, .post h1 a:visited {
-    color: #212026;
-
+    font-size: 20pt;
+    color: #b8bbc2;
+    border: 20px;
 }
 
+.post p{
+    color: #ffffff;
+    margin: 10px 20px 10px 20px;
+
+}

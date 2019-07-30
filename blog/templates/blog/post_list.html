@@ -3,8 +3,10 @@
 {% block content %}
     {% for post in posts %}
         <div class="post">
+            <div class = title>
 
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            </div>
         {% if post.video or post.image %}
 <!--                        <video class="video" src="{{ post.video.url|default_if_none:'#' }}"  height="400"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">-->
             <video class="video" src="{{ post.video.url|default_if_none:'#' }}"  height="400"  controls loop >
@@ -15,7 +17,7 @@
         {% endif %}
             <br>
 
-            <p>{{ post.text|linebreaksbr|truncatechars:80 }}</p>
+            <p>{{ post.text|linebreaksbr|truncatechars:150 }}</p>
 <!--            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>-->
 <!--            <div class="date">-->
 <!--                {{ post.published_date }}-->
