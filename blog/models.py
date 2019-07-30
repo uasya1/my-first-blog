@@ -12,7 +12,6 @@ from django.core.files.storage import FileSystemStorage
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    #files = models.ManyToManyField(PostFile)
     video = models.FileField(upload_to='media/%Y/%m/%d/',null=True, blank=True, help_text='Only webm or mp4', verbose_name='video',)
     image = models.ImageField(upload_to='image/%Y/%m/%d/',null=True, blank=True, )
     text = models.TextField()
@@ -28,6 +27,19 @@ class Post(models.Model):
 
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
+
+
+class PostStatistic(models.Model):
+    class Meta:
+        db_table = "PostStatistic"
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    date = models.DateField('Date', default=timezone.now)
+    views = models.IntegerField('Views', default=0)
+
+    def __str__(self):
+        return self.post.title
+
 
 
 

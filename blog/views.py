@@ -15,10 +15,6 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 @login_required
-# def post_new(request):
-#     form = PostForm()
-#     return render(request, 'blog/post_edit.html', {'form': form})
-
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)

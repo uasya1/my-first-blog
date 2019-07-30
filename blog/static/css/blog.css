@@ -9,7 +9,8 @@
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
-    margin-left: 50px;
+    margin-left: 10%;
+    /*margin-left: 50px;*/
 }
 
 .back {
@@ -24,8 +25,9 @@
   */
     left: 50%;
     top: 50%;
-      width: 800px;
+      width: 740px;
     background-color: #ffffff;
+
 }
 
 
@@ -54,7 +56,7 @@ h1, h2, h3, h4 {
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #ffffff;
     float: right;
-    font-size: 26pt;
+    font-size: 20pt;
     margin-right: 20px;
 }
 
@@ -64,9 +66,11 @@ h1, h2, h3, h4 {
    border-bottom-style: solid;
 
 
+
 }
 
 .post h1 a, .post h1 a:visited {
     color: #212026;
+
 }
 

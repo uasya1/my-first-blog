@@ -6,8 +6,8 @@
 
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         {% if post.video or post.image %}
-
-            <video class="video" src="{{ post.video.url|default_if_none:'#' }}"  height="400"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
+<!--                        <video class="video" src="{{ post.video.url|default_if_none:'#' }}"  height="400"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">-->
+            <video class="video" src="{{ post.video.url|default_if_none:'#' }}"  height="400"  controls loop >
             </video>
 
         {% else %}
