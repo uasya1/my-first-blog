@@ -1,27 +1,37 @@
-/*{% load static %}
+{% load static %}
 @font-face {
     font-family: "Russo One";
     src: url({% static 'fonts/RussoOne-Regular.woff' %});
+    src: url({% static 'fonts/RussoOne-Regular.ttf' %});
     src: local({% static 'fonts/RussoOne-Regular.woff2' %})
 
 }
-*/
+
 
 .page-header {
     background-color: #22272B;
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    padding: 10px 20px 5px 40px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
-    margin-left: 10%;
+    margin: 0% 3% 0% 0%;
+}
+.page-links {
+    margin: 0% 0% 0% 20%;
 }
 
+
+
+
 .back {
-    background-color: rgba(34, 39, 43, 0.9);
+
+    /*background-color: #ffffff;*/
+    background-color: rgba(34, 39, 43, 0.9);*/
+    /*background-color: rgba(34, 39, 43, 0.8);*/
 }
 
 
@@ -29,20 +39,18 @@
     left: 50%;
     top: 50%;
     width: 750px;
-    background-color: rgba(34, 39, 43, 0.8)
+    /*background-color: rgba(34, 39, 43, 0.8);*/
+    /*background-color: rgba(34, 39, 43, 0.9);*/
     color: #ffffff;
 
 }
 
-.comment {
-    margin: 20px 0px 20px 20px;
-}
 
 
 
 h1, h2, h3, h4 {
+    /*font-family: 'Russo One', sans-serif;*/
     font-family: 'Russo One', sans-serif;
-    /*font-family: 'Russo One', cursive;*/
 }
 
 .date {
@@ -53,9 +61,21 @@ h1, h2, h3, h4 {
     float: right;
 }
 
+.post-form {
+    left: 50%;
+    top: 50%;
+    width: 750px;
+    margin: 20px 0px 0px 0px;
+
+}
+
 .post-form textarea, .post-form input {
     width: 100%;
     color: #ffffff;
+    background-color: rgba(34, 39, 43, 0.9);
+        border: 1px solid ;
+    border-color: #45494D;
+
 
 
 }
@@ -72,13 +92,18 @@ h1, h2, h3, h4 {
 
     width: 700px;
     margin: 20px 0px 0px 0px;
-    background-color: rgba(34, 39, 43, 0.9);
+    /*background-color: rgba(34, 39, 43, 0.9);*/
+    background-color: rgba(34, 39, 43, 0.8);
     border: 1px solid ;
-    border-color: #393d41;
+    border-color: #45494D;
 }
 
 .post video{
-    width: 698px;
+
+    margin: 0px 10px 0px 10px;
+    width: 678px;
+    height: 380px;
+
 }
 
 .title {
@@ -88,11 +113,38 @@ h1, h2, h3, h4 {
 .post h1 a, .post h1 a:visited {
     font-size: 20pt;
     color: #b8bbc2;
-    border: 20px;
+    border: 0px;
 }
 
 .post p{
     color: #ffffff;
     margin: 10px 20px 10px 20px;
+    border
 
 }
+
+.date{
+    margin: 0px 0px 10px 10px;
+
+}
+
+.btn-secondary {
+    margin: 10px 0px 10px 10px;
+
+}
+.under-post {
+margin: 20px 0px 0px 0px;
+        width: 700px;
+    border: 1px solid ;
+    border-color: #45494D;
+    background-color: rgba(34, 39, 43, 0.8);
+}
+.comment .comment-text{
+    color: #ffffff;
+    margin: 10px 20px 10px 20px;
+
+        border-bottom: 1px solid ;
+    border-color: #45494D;
+}
+
+

@@ -2,15 +2,13 @@
 {% block content %}
     <div class="post">
 
+            <div class = title>
         <h1>{{ post.title }}</h1>
+            </div>
         {% if post.video and post.image %}
-            <table>
-                <tr>
-                    <th><video src="{{ post.video.url|default_if_none:'#' }}"  height="400"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
-                        </video></th>
-<!--                    <td><img src="{{ post.image.url|default_if_none:'#' }}" alt="My image" height="270"/></td>-->
-                </tr>
-            </table>
+                        <video src="{{ post.video.url|default_if_none:'#' }}"  height="400"   controls loop poster="{{ post.image.url|default_if_none:'#' }}">
+                        </video>
+
         {% else %}
             <p></p>
         {% endif %}
@@ -32,26 +30,29 @@
 
     </div>
     <hr>
-    <a class="btn btn-secondary" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
-    {% for comment in post.comments.all %}
-        {% if user.is_authenticated or comment.approved_comment %}
-        <div class="comment">
-            <div class="date">
-                {{ comment.created_date }}
+    <div class="under-post">
+        <a class="btn btn-secondary" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+        {% for comment in post.comments.all %}
+            {% if user.is_authenticated or comment.approved_comment %}
+            <div class="comment">
+                <div class="date">
+                    {{ comment.created_date }}
+                        <a class="btn btn-secondary" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove">Remove</span></a>
 
-                {% if not comment.approved_comment %}
+                    {% if not comment.approved_comment %}
 
-                    <a class="btn btn-secondary" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove">Remove</span></a>
 
-                    <a class="btn btn-secondary" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok">Publish</span></a>
-                {% endif %}
+                        <a class="btn btn-secondary" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok">Publish</span></a>
+                    {% endif %}
+                </div>
+                <div class="comment-text">
+                <strong>{{ comment.author }}</strong>
+                <p>{{ comment.text|linebreaks }}</p>
+                </div>
             </div>
-
-            <strong>{{ comment.author }}</strong>
-            <p>{{ comment.text|linebreaks }}</p>
-        </div>
-        {% endif %}
-    {% empty %}
-        <p>No comments here yet :(</p>
-    {% endfor %}
+            {% endif %}
+        {% empty %}
+            <p>No comments here yet :(</p>
+        {% endfor %}
+    </div>
 {% endblock %}
